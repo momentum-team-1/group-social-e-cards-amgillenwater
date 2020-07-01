@@ -4,7 +4,7 @@ import { getToken, getCards } from '../api'
 export default function LogIn (props) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [token, setToken] = useState('')
+//   const [token, setToken] = useState('')
 
   const handleLogin = (event) => {
     event.preventDefault()
@@ -27,6 +27,7 @@ export default function LogIn (props) {
             id='username'
             placeholder='Enter username'
             value={username}
+            onChange={setUsername}
           />
         </div>
         <div>
@@ -36,6 +37,7 @@ export default function LogIn (props) {
             id='password'
             placeholder='Password'
             value={password}
+            onChange={setPassword}
           />
         </div>
         <button
