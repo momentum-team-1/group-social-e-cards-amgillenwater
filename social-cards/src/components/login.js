@@ -1,16 +1,20 @@
 import React, { useState, setState } from 'react'
 import { getToken, getCards } from '../api'
 
-function LogIn (props) {
+export default function LogIn (props) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [token, setToken] = useState('')
 
-  const handleChange = (e) => {
-    const { id, value } = e.target
-    setState(prevState => ({
-      ...prevState,
-      [id]: value
-    }))
+  const handleLogin = (event) => {
+    event.preventDefault()
+
+    getToken(username, password)
+      .then(token => {
+        //    ({ token: token, password: '' })
+        localStorage.setItem('login_username', username)
+        localStorage.setItem('login_auth_token', token)
+      })
   }
 
   return (
@@ -23,7 +27,6 @@ function LogIn (props) {
             id='username'
             placeholder='Enter username'
             value={username}
-            onChange={handleChange}
           />
         </div>
         <div>
@@ -33,11 +36,11 @@ function LogIn (props) {
             id='password'
             placeholder='Password'
             value={password}
-            onChange={handleChange}
           />
         </div>
         <button
           type='submit'
+          onSubmit={handleLogin}
         >
             Register
         </button>
@@ -45,5 +48,3 @@ function LogIn (props) {
     </div>
   )
 }
-
-export default LogIn
