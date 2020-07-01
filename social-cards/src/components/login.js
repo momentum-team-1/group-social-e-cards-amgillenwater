@@ -1,6 +1,6 @@
 /* globals localStorage */
 import React, { useState } from 'react'
-import { getToken, getCards } from '../api'
+import { getToken } from '../api'
 
 export default function LogIn ({ setToken }) {
   const [username, setUsername] = useState(localStorage.getItem('login_username') || '')
@@ -22,7 +22,7 @@ export default function LogIn ({ setToken }) {
     <div>
       <form onSubmit={handleLogin}>
         <div>
-          <label htmlFor='exampleInputEmail1'>Username: </label>
+          <label>Username: </label>
           <input
             type='text'
             id='username'
@@ -32,7 +32,7 @@ export default function LogIn ({ setToken }) {
           />
         </div>
         <div>
-          <label htmlFor='exampleInputPassword1'>Password: </label>
+          <label>Password: </label>
           <input
             type='password'
             id='password'
