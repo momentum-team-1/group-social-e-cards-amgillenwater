@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
 import LogIn from './components/login'
 
 function App () {
+  const [token, setToken] = useState(localStorage.getItem('login_auth_token'))
   return (
     <div className='App'>
-      <LogIn />
+      <LogIn setToken={setToken} />
     </div>
   )
 }

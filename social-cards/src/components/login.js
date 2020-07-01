@@ -1,17 +1,18 @@
-import React, { useState, setState } from 'react'
+/* globals localStorage */
+import React, { useState } from 'react'
 import { getToken, getCards } from '../api'
 
-export default function LogIn (props) {
-  const [username, setUsername] = useState('')
+export default function LogIn ({ setToken }) {
+  const [username, setUsername] = useState(localStorage.getItem('login_username') || '')
   const [password, setPassword] = useState('')
-//   const [token, setToken] = useState('')
+  // ^ if local storage has a token, it will have that in state, otherwise null/undef
 
   const handleLogin = (event) => {
     event.preventDefault()
 
     getToken(username, password)
       .then(token => {
-        //    ({ token: token, password: '' })
+        setToken(token)
         localStorage.setItem('login_username', username)
         localStorage.setItem('login_auth_token', token)
       })
@@ -19,7 +20,7 @@ export default function LogIn (props) {
 
   return (
     <div>
-      <form>
+      <form onSubmit={handleLogin}>
         <div>
           <label htmlFor='exampleInputEmail1'>Username: </label>
           <input
@@ -27,7 +28,7 @@ export default function LogIn (props) {
             id='username'
             placeholder='Enter username'
             value={username}
-            onChange={setUsername}
+            onChange={event => setUsername(event.target.value)}
           />
         </div>
         <div>
@@ -37,14 +38,13 @@ export default function LogIn (props) {
             id='password'
             placeholder='Password'
             value={password}
-            onChange={setPassword}
+            onChange={event => setPassword(event.target.value)}
           />
         </div>
         <button
           type='submit'
-          onSubmit={handleLogin}
         >
-            Register
+            Log In
         </button>
       </form>
     </div>
