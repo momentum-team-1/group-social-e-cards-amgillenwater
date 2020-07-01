@@ -17,7 +17,7 @@ function LogIn (props) {
     <div>
       <form>
         <div>
-          <label htmlFor='exampleInputEmail1'>Email address</label>
+          <label htmlFor='exampleInputEmail1'>Username: </label>
           <input
             type='text'
             id='username'
@@ -27,7 +27,7 @@ function LogIn (props) {
           />
         </div>
         <div>
-          <label htmlFor='exampleInputPassword1'>Password</label>
+          <label htmlFor='exampleInputPassword1'>Password: </label>
           <input
             type='password'
             id='password'
