@@ -5,16 +5,17 @@ import { getToken } from '../api'
 export default function LogIn ({ setToken }) {
   const [username, setUsername] = useState(localStorage.getItem('login_username') || '')
   const [password, setPassword] = useState('')
-  // ^ if local storage has a token, it will have that in state, otherwise null/undef
 
   const handleLogin = (event) => {
     event.preventDefault()
-
     getToken(username, password)
       .then(token => {
         setToken(token)
         localStorage.setItem('login_username', username)
         localStorage.setItem('login_auth_token', token)
+      })
+      .catch(error => {
+        console.log(error)
       })
   }
 

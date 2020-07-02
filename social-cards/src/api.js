@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: 'http://localhost:2000/api'
+  baseURL: 'localhost:2000/api'
 })
 
 export function getToken (username, password) {
