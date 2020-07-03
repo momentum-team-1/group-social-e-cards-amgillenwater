@@ -1,34 +1,22 @@
 /* globals localStorage */
 import React, { useState } from 'react'
 import { getToken } from '../api'
-import { setToken } from '../App'
 
 export default function LogIn ({ setToken }) {
-  let [username, setUsername] = useState(localStorage.getItem('login_username') || '')
-  let [password, setPassword] = useState('')
+  const [username, setUsername] = useState(localStorage.getItem('login_username') || '')
+  const [password, setPassword] = useState('')
+  // ^ if local storage has a token, it will have that in state, otherwise null/undef
 
   const handleLogin = (event) => {
     event.preventDefault()
+
     getToken(username, password)
       .then(token => {
         setToken(token)
         localStorage.setItem('login_username', username)
         localStorage.setItem('login_auth_token', token)
       })
-      // .catch(error => {
-      //   console.log(error)
-      // })
   }
-
-  const handleLogout = (event) => {
-    event.preventDefault()
-
-    username = ''
-    password = null
-    localStorage.removeItem('login_username')
-    localStorage.removeItem('login_auth_token')
-  }
-
   return (
     <div>
       <form onSubmit={handleLogin}>
@@ -57,7 +45,6 @@ export default function LogIn ({ setToken }) {
         >
             Log In
         </button>
-        <button className='button' onClick={handleLogout}>Log out</button>
       </form>
     </div>
   )
