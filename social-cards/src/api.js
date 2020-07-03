@@ -2,7 +2,7 @@
 import axios from 'axios'
 
 const request = axios.create({
-  baseURL: 'localhost:2000/api'
+  baseURL: 'https://card-club.herokuapp.com/api'
 })
 
 export function getToken (username, password) {

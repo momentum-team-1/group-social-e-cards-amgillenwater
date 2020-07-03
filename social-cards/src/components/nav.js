@@ -7,7 +7,7 @@ export default function Nav ({setToken}) {
     <nav className='nav'>
       <ul>
         <li>
-          <NavLink to='/auth/token/login' render={() => <LogIn setToken={setToken} />}>
+          <NavLink to='/login' render={() => <LogIn setToken={setToken} />}>
             Log In
           </NavLink>
         </li>
