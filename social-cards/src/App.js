@@ -20,7 +20,6 @@ function App (props) {
           <Route path='/login' render={() => <LogIn setToken={setToken} />} />
           <Route path='/feed' render={() => <CardFeed token={token} />} />
 
-
         </Switch>
       </Router>
     </div>
