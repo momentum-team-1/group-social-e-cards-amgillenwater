@@ -1,6 +1,7 @@
 /* globals localStorage */
 import React, { useState } from 'react'
 import { getToken } from '../api'
+import { PrimaryButton } from './Buttons'
 
 export default function LogIn ({ setToken }) {
   const [username, setUsername] = useState(localStorage.getItem('login_username') || '')
@@ -40,11 +41,11 @@ export default function LogIn ({ setToken }) {
             onChange={event => setPassword(event.target.value)}
           />
         </div>
-        <button
+        <PrimaryButton
           type='submit'
         >
             Log In
-        </button>
+        </PrimaryButton>
       </form>
     </div>
   )
