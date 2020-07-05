@@ -5,7 +5,7 @@ class CardFeed extends React.Component {
   constructor () {
     super()
     this.state = {
-      cardList: [],
+      cards: [],
       token: window.localStorage.getItem('login_auth_token')
     }
   }
@@ -24,14 +24,12 @@ class CardFeed extends React.Component {
   }
 
   render () {
+    const card = this.state.cards.map((cards, idx) =>
+      <li key={cards.idx}>{cards.author}</li>
+    )
     return (
       <div className='CardFeed'>
-        {this.state.cardList}
-        <div>
-          <div>
-            {this.state.cardList.map(card => <p className='card' key={card.id}><a href={`/card/${card.id}/`}>{card.text_outer}</a></p>)}
-          </div>
-        </div>
+        <p>{card}</p>
       </div>
     )
   }
