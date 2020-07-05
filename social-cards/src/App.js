@@ -6,7 +6,7 @@ import LogIn from './components/login'
 // import Nav from './components/nav'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Home from './components/home'
-import CardFeed from './components/CardFeed'
+import CardFeed from './components/cardFeed'
 
 function App (props) {
   const [token, setToken] = useState(localStorage.getItem('login_auth_token'))
