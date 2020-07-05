@@ -1,20 +1,11 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import LogIn from './login'
-
-export default function Nav ({setToken}) {
+// Nav  will only be for logged in members? Like after you log in you get the nav at the top and the feed?
+export default function Nav ({ setToken }) {
   return (
-    <nav className='nav'>
-      <ul>
-        <li>
-          <NavLink to='/login' render={() => <LogIn setToken={setToken} />}>
-            Log In
-          </NavLink>
-        </li>
-        <li>
-            New Card
-        </li>
-      </ul>
-    </nav>
+    <div className='Nav'>
+      Here will be the nav bar
+    </div>
   )
 }

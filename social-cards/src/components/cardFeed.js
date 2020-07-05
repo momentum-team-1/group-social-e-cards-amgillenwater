@@ -1,6 +1,7 @@
 /* globals localStorage */
 import React, { useState, useEffect } from 'react'
 import { getCards } from '../api'
+import { Card } from './StyledComponents'
 
 const CardFeed = (props) => {
   const [cards, setCards] = useState([])
@@ -16,7 +17,7 @@ const CardFeed = (props) => {
       <ul>
         {cards && cards.map((card) => {
           return (
-            <li key={card.id}>{card.author}</li>)
+            <Card key={card.id} card={card} outer={card.text_outer} inner={card.text_inner} author={card.author}/>)
         })}
       </ul>
     </div>)
