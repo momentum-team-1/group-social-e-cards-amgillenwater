@@ -23,6 +23,12 @@ const CardDiv = styled.div`
   max-width: 200px;
   margin: 2rem;
 `
+
+export const Image = styled.img`
+height:70%
+margin: auto 0
+`
+
 export const Card = ({ outer, inner, author }) => (
   <CardDiv>
     <OuterText>{outer}</OuterText>
@@ -30,3 +36,21 @@ export const Card = ({ outer, inner, author }) => (
 
   </CardDiv>
 )
+
+export const Wrapper = styled.div`
+  position: relative;
+  padding-top: .7rem;
+  cursor: pointer;
+  display: block;
+
+  & span{
+    background: #fdcb6e;
+    display: block;
+    position: relative;
+    width: 3.5rem;
+    height: .4rem;
+    margin-bottom: .7rem;
+    transition: all ease-in-out 0.2s;
+  }
+
+`

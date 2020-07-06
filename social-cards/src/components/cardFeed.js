@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react'
 import { getCards } from '../api'
 import { Card } from './StyledComponents'
 
-const CardFeed = (props) => {
+const CardFeed = (token) => {
   const [cards, setCards] = useState([])
 
   useEffect(() => {
     if (localStorage.getItem('login_auth_token')) {
-      getCards(localStorage.getItem('login_auth_token')).then(cards => setCards(cards))
+      getCards(localStorage.getItem('login_auth_token')).then(cards => setCards(cards.results))
     }
   }, [])
 
