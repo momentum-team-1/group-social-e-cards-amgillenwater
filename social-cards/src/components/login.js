@@ -10,7 +10,6 @@ export default function LogIn ({ setToken }) {
 
   const handleLogin = (event) => {
     event.preventDefault()
-
     getToken(username, password)
       .then(token => {
         setToken(token)
@@ -41,11 +40,11 @@ export default function LogIn ({ setToken }) {
             onChange={event => setPassword(event.target.value)}
           />
         </div>
-        <Button
+        <button
           type='submit'
         >
             Log In
-        </Button>
+        </button>
       </form>
     </div>
   )
