@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
-import { createCard } from '../api'
 
 function CardCreator (token) {
   const [outer, setOuter] = useState('')

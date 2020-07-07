@@ -1,7 +1,6 @@
 /* globals localStorage */
 import React, { useState } from 'react'
 import { getToken } from '../api'
-import { Button } from './StyledComponents'
 
 export default function LogIn ({ setToken }) {
   const [username, setUsername] = useState(localStorage.getItem('login_username') || '')

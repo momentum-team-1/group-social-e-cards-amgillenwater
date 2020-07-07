@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react'
 import { getCards } from '../api'
 import { Card } from './StyledComponents'
-import HeartButton from './HeartButton'
 
 const CardFeed = (token) => {
   const [cards, setCards] = useState([])
