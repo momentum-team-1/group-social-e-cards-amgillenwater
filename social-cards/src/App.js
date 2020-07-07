@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import LogIn from './components/login'
 import CardFeed from './components/CardFeed'
 import CardCreator from './components/CardCreator'
+import SideBar from './components/SideBar'
 import { Box, Button, Collapsible, Heading, Grommet, Layer, ResponsiveContext } from 'grommet'
 import { FormClose, Menu } from 'grommet-icons'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -62,7 +63,7 @@ function App (props) {
                     align='center'
                     justify='center'
                   >
-                      sidebar
+                    <SideBar token={token} setToken={setToken} />
                   </Box>
                 </Collapsible>
               ) : (
@@ -85,7 +86,7 @@ function App (props) {
                     align='center'
                     justify='center'
                   >
-                      sidebar
+                    <SideBar token={token} setToken={setToken} />
                   </Box>
                 </Layer>
               )}
