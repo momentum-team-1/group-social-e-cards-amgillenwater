@@ -19,9 +19,6 @@ function CardCreator (token) {
           Authorization: `Token ${token}`
         }
       })
-      // .then(response => {
-      //   setCreated(true)
-      // })
   }
 
   return (
@@ -32,7 +29,7 @@ function CardCreator (token) {
         <label>Text</label>
         <input type='text' name='text' onChange={event => setInner(event.target.value)} value={inner} required />
       </div>
-      <button type='submit'>Create Card</button>
+      <button type='submit' onChange={event => setCreated(false)}> Create Card</button>
     </form>
   )
 }

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import { getCards } from '../api'
 import { Card } from './StyledComponents'
+import HeartButton from './HeartButton'
 
 const CardFeed = (token) => {
   const [cards, setCards] = useState([])
@@ -17,7 +18,11 @@ const CardFeed = (token) => {
       <ul>
         {cards && cards.map((card) => {
           return (
-            <Card key={card.id} card={card} outer={card.text_outer} inner={card.text_inner} author={card.author} />)
+            <div key={card.id}>
+              <Card key={card.id} card={card} outer={card.text_outer} inner={card.text_inner} author={card.author} />
+              <HeartButton key={card.id} />
+            </div>
+          )
         })}
       </ul>
     </div>)
