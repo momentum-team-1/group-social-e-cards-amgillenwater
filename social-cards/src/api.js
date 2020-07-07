@@ -20,6 +20,16 @@ export function getCards (token) {
   }).then(res => res.data)
 }
 
-// export function makeCard (token){
-//   return request.post('/')
-// }
+export const createCard = (event, token, outer, inner) => {
+  event.preventDefault()
+  axios
+    .post('https://card-club.herokuapp.com/api/card/', {
+      text_inner: { outer },
+      text_outer: { inner }
+    },
+    {
+      headers: {
+        Authorization: `Token${token}`
+      }
+    })
+}

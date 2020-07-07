@@ -15,7 +15,7 @@ function App (props) {
     <div className='App'>
       <Router>
         <Switch>
-          <Route path='/' exact component={Home} />} />
+          <Route path='/' exact render={() => <LogIn setToken={setToken} />} />
           <Route path='/feed' render={() => <CardFeed token={token} />} />
           <Route path='/new' render={() => <CardCreator token={token} />} />
         </Switch>

@@ -17,7 +17,7 @@ const CardFeed = (token) => {
       <ul>
         {cards && cards.map((card) => {
           return (
-            <Card key={card.id} card={card} outer={card.text_outer} inner={card.text_inner} author={card.author}/>)
+            <Card key={card.id} card={card} outer={card.text_outer} inner={card.text_inner} author={card.author} />)
         })}
       </ul>
     </div>)
