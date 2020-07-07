@@ -7,14 +7,6 @@ function CardCreator (token) {
   const [inner, setInner] = useState('')
   const [created, setCreated] = useState(false)
 
-  const handleOuterChange = (event) => {
-    setOuter({ title: event.target.value })
-  }
-
-  const handleInnerChange = (event) => {
-    setInner({ text: event.target.value })
-  }
-
   const handleSubmit = (event, token) => {
     event.preventDefault()
     axios
