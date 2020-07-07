@@ -4,8 +4,7 @@ function HeartButton () {
   const [likes, setlikes] = useState(0)
   return (
     <div>
-      <p>{likes}</p>
-      <button onClick={() => setlikes(likes + 1)}>love</button>
+      <button onClick={() => setlikes(likes + 1)}>{likes}</button>
     </div>
   )
 }
