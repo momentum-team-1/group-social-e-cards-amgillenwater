@@ -20,7 +20,6 @@ const CardFeed = (token) => {
           return (
             <div key={card.id}>
               <Card key={card.id} card={card} outer={card.text_outer} inner={card.text_inner} author={card.author} />
-              <HeartButton key={card.id} />
             </div>
           )
         })}

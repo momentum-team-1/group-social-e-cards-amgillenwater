@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import HeartButton from './HeartButton'
 
 export const Button = styled.button`
   padding: 8px 12px;
@@ -33,7 +34,7 @@ export const Card = ({ outer, inner, author }) => (
   <CardDiv>
     <OuterText>{outer}</OuterText>
     <InnerText>{inner} <br /> from: {author}</InnerText>
-
+    <HeartButton />
   </CardDiv>
 )
 
