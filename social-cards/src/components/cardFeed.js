@@ -4,6 +4,7 @@ import Cards from './Cards'
 import { getCards } from '../api'
 import { Box, Grommet } from 'grommet'
 import { grommet } from 'grommet/themes'
+import '../app.css'
 
 const CardFeed = ({ token }) => {
   const [cards, setCards] = useState([])
@@ -15,12 +16,8 @@ const CardFeed = ({ token }) => {
   })
 
   return (
-    <div>
-      <Grommet full theme={grommet}>
-        <Box align='center' pad='large'>
-          <Cards cards={cards} />
-        </Box>
-      </Grommet>
+    <div align='center'>
+      <Cards cards={cards} />
     </div>
   )
 }

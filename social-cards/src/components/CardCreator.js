@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { Box, Grommet, TextInput, TextArea, Button, Form, FormField } from 'grommet'
+import { Box, Grommet, TextInput, TextArea, Button, Form, FormField, Select } from 'grommet'
 import { grommet } from 'grommet/themes'
 import { useHistory } from 'react-router-dom'
 
 function CardCreator ({ token }) {
   const [outer, setOuter] = useState('')
   const [inner, setInner] = useState('')
+  const [color, setColor] = useState('')
+  const [font, setFont] = useState('')
   const history = useHistory()
 
   const handleSubmit = (event) => {
@@ -14,7 +16,8 @@ function CardCreator ({ token }) {
     axios
       .post('https://card-club.herokuapp.com/api/card/', {
         text_inner: outer,
-        text_outer: inner
+        text_outer: inner,
+        color: color
       },
       {
         headers: {
@@ -39,6 +42,24 @@ function CardCreator ({ token }) {
               value={outer}
               onChange={event => setOuter(event.target.value)}
               type='password'
+              required
+            />
+          </FormField>
+          <FormField label='color' name='color'>
+            <Select
+              name='color'
+              options={['orange', 'magenta', 'pink', 'purple', 'yellow']}
+              value={color}
+              onChange={event => setColor(event.option)}
+              required
+            />
+          </FormField>
+          <FormField label='font' name='font'>
+            <Select
+              name='font'
+              options={['serif', 'sansserif']}
+              value={font}
+              onChange={event => setFont(event.option)}
               required
             />
           </FormField>

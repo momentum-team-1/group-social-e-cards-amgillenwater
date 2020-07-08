@@ -15,8 +15,9 @@ const Profile = ({ token, username }) => {
     <div>
       <Grommet full theme={grommet}>
         <Box align='center' pad='large'>
-          <p>Hi, {username}!</p>
-          <Cards cards={cards} />
+          <h2>Hi, {username}!</h2>
+          <p>Here's a list of cards you've made or were tagged in:</p>
+          <Cards cards={cards} align='center' />
         </Box>
       </Grommet>
     </div>

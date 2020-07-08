@@ -1,5 +1,6 @@
 /* globals localStorage */
 import React, { useState } from 'react'
+import './app.css'
 import LogIn from './components/login'
 import LogOut from './components/LogOut'
 import CardFeed from './components/cardFeed'

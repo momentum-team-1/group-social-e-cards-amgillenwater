@@ -1,17 +1,18 @@
 import React from 'react'
-import { Card } from './StyledComponents'
+import '../app.css'
+import { CardDiv } from './StyledComponents'
 
 export default function Cards ({ cards }) {
   return (
     <div>
-      <ul>
-        {cards && cards.map((card) => {
-          return (
-            <div key={card.id}>
-              <Card key={card.id} card={card} outer={card.text_outer} inner={card.text_inner} author={card.author} />
-            </div>
-          )
-        })}
-      </ul>
-    </div>)
+      {cards && cards.map((card) => {
+        return (
+          <CardDiv key={card.id} className={card.color}>
+            <h2 className='{card.font}'>{card.text_outer}</h2>
+            <p>{card.text_inner} <br /> add a link to profile here @{card.author}</p>
+          </CardDiv>
+        )
+      })}
+    </div>
+  )
 }
