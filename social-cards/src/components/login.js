@@ -34,36 +34,6 @@ export default function LogIn ({ setToken }) {
               onChange={event => setPassword(event.target.value)}
             />
           </FormField>
-
-          {/* <div>
-        <form onSubmit={handleLogin}>
-          <div>
-            <label>Username: </label>
-            <input
-              type='text'
-              id='username'
-              placeholder='Enter username'
-              value={username}
-              onChange={event => setUsername(event.target.value)}
-            />
-          </div>
-          <div>
-            <label>Password: </label>
-            <input
-              type='password'
-              id='password'
-              placeholder='Password'
-              value={password}
-              onChange={event => setPassword(event.target.value)}
-            />
-          </div>
-          <button
-            type='submit'
-          >
-            Log In
-          </button>
-        </form>
-      </div> */}
           <Button type='submit' primary label='Submit' />
 
         </Form>

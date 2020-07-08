@@ -26,8 +26,9 @@ function App (props) {
         <div>
           <Home username={username} />
           <Switch>
+            <Route path='/' exact render={() => <CardFeed token={token} />} />
             <Route path='/feed/' render={() => <CardFeed token={token} />} />
-            <Route path='/new' render={() => <CardCreator token={token} />} />
+            <Route path='/new/' render={() => <CardCreator token={token} />} />
             <Route path='/logout/' render={() => <LogOut onLogout={handleLogout} />} />
           </Switch>
         </div>

@@ -17,12 +17,14 @@ color: Black;
 font-weight: 300
 `
 const CardDiv = styled.div`
-  background-color: LightSeaGreen;
+  background-color: #6FFFB0;
   padding: 2rem;
-  border: solid .25rem;
+  border: solid .1rem;
   text-align: center;
   max-width: 200px;
   margin: 2rem;
+  border-radius: 25px;
+  font-family: "Roboto"
 `
 
 export const Image = styled.img`
