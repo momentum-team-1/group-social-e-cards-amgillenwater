@@ -17,7 +17,8 @@ function CardCreator ({ token }) {
       .post('https://card-club.herokuapp.com/api/card/', {
         text_inner: outer,
         text_outer: inner,
-        color: color
+        color: color,
+        font: font
       },
       {
         headers: {

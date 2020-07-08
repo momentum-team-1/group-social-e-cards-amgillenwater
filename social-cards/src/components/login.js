@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { getToken } from '../api'
 import { Box, Grommet, TextInput, Button, Form, FormField, Header, Nav } from 'grommet'
 import { grommet } from 'grommet/themes'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function LogIn ({ setToken, username, setUsername }) {
   const [password, setPassword] = useState('')

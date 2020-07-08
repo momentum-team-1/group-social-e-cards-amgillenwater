@@ -8,8 +8,8 @@ export default function Cards ({ cards }) {
       {cards && cards.map((card) => {
         return (
           <CardDiv key={card.id} className={card.color}>
-            <h2 className='{card.font}'>{card.text_outer}</h2>
-            <p>{card.text_inner} <br /> add a link to profile here @{card.author}</p>
+            <h2 className={card.font}>{card.text_outer}</h2>
+            <p className={card.font}>{card.text_inner} <br /> add a link to profile here @{card.author}</p>
           </CardDiv>
         )
       })}
