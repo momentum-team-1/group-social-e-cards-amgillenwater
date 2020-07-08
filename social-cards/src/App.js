@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import LogIn from './components/login'
 import LogOut from './components/LogOut'
-import CardFeed from './components/CardFeed'
+import CardFeed from './components/cardFeed'
 import CardCreator from './components/CardCreator'
 import Home from './components/Home'
 // import { Box, Button, Collapsible, Heading, Grommet, Layer, ResponsiveContext } from 'grommet'

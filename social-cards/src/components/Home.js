@@ -1,7 +1,7 @@
 /* globals localStorage */
 import React, { useState } from 'react'
 import LogOut from './LogOut'
-import CardFeed from './CardFeed'
+import CardFeed from './cardFeed'
 import { Grommet, Header, Main, Nav, Text } from 'grommet'
 import { grommet } from 'grommet/themes'
 import { Link } from 'react-router-dom'

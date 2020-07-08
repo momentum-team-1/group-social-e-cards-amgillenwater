@@ -1,7 +1,7 @@
 /* globals localStorage */
 import React, { useState, useEffect } from 'react'
+import Cards from './Cards'
 import { getCards } from '../api'
-import { Card } from './StyledComponents'
 
 const CardFeed = (token) => {
   const [cards, setCards] = useState([])
@@ -13,17 +13,8 @@ const CardFeed = (token) => {
   }, [])
 
   return (
-    <div>
-      <ul>
-        {cards && cards.map((card) => {
-          return (
-            <div key={card.id}>
-              <Card key={card.id} card={card} outer={card.text_outer} inner={card.text_inner} author={card.author} />
-            </div>
-          )
-        })}
-      </ul>
-    </div>)
+    <Cards cards={cards} />
+  )
 }
 
 export default CardFeed
