@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-function CardCreator (token) {
+function CardCreator ({ token }) {
   const [outer, setOuter] = useState('')
   const [inner, setInner] = useState('')
   const [created, setCreated] = useState(false)
 
-  const handleSubmit = (event, token) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
     axios
       .post('https://card-club.herokuapp.com/api/card/', {
-        text_inner: { outer },
-        text_outer: { inner }
+        text_inner: outer,
+        text_outer: inner
       },
       {
         headers: {
@@ -28,7 +28,7 @@ function CardCreator (token) {
         <label>Text</label>
         <input type='text' name='text' onChange={event => setInner(event.target.value)} value={inner} required />
       </div>
-      <button type='submit' onChange={event => setCreated(false)}> Create Card</button>
+      <button type='submit' onChange={event => setCreated(true)}> Create Card</button>
     </form>
   )
 }

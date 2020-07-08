@@ -1,100 +1,44 @@
 /* globals localStorage */
 import React, { useState } from 'react'
 import LogIn from './components/login'
+import LogOut from './components/LogOut'
 import CardFeed from './components/CardFeed'
 import CardCreator from './components/CardCreator'
-import SideBar from './components/SideBar'
-import { Box, Button, Collapsible, Heading, Grommet, Layer, ResponsiveContext } from 'grommet'
-import { FormClose, Menu } from 'grommet-icons'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+// import { Box, Button, Collapsible, Heading, Grommet, Layer, ResponsiveContext } from 'grommet'
+// import { FormClose, Menu } from 'grommet-icons'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 
-const theme = {
-  colors: {
-    brand: '#228BE6'
-  },
-  global: {
-    font: {
-      family: 'Roboto',
-      size: '18px',
-      height: '20px'
-    }
-  }
-}
-const AppBar = (props) => (
-  <Box
-    tag='header'
-    direction='row'
-    align='center'
-    justify='between'
-    background='brand'
-    pad={{ left: 'medium', right: 'small', vertical: 'small' }}
-    elevation='medium'
-    style={{ zIndex: '1' }}
-    {...props}
-  />
-)
 function App (props) {
   const [token, setToken] = useState(localStorage.getItem('login_auth_token'))
+  const [username, setUsername] = useState(localStorage.getItem('login_username'))
   // ^ if local storage has a token, it will have that in state, otherwise null/undef
-  const [showSidebar, setShowSidebar] = useState(false)
+  const handleLogout = () => {
+    setToken(null)
+    setUsername('')
+    localStorage.removeItem('login_auth_token')
+    localStorage.removeItem('login_username')
+  }
+
+  if (token) {
+    return (
+      <Router>
+        <div>
+          <p>Hi, {username}!</p>
+          <p><Link to='/logout/'>Log out</Link></p>
+          <Switch>
+            <Route path='/' exact render={() => <LogIn setToken={setToken} />} />
+            <Route path='/feed' render={() => <CardFeed token={token} />} />
+            <Route path='/new' render={() => <CardCreator token={token} />} />
+            <Route path='/logout/' render={() => <LogOut onLogout={handleLogout} />} />
+          </Switch>
+        </div>
+      </Router>
+    )
+  }
   return (
-    <Grommet theme={theme} full>
-      <ResponsiveContext.Consumer>
-        {size => (
-          <Box fill>
-            <AppBar>
-              <Heading level='3' margin='none'>Card Club</Heading>
-              <Button
-                icon={<Menu />}
-                onClick={() => setShowSidebar(!showSidebar)}
-              />
-            </AppBar>
-            <Box direction='row' flex overflow={{ horizontal: 'hidden' }}>
-              <Box flex align='center' justify='center'>
-                <LogIn setToken={setToken} />
-              </Box>
-              {(!showSidebar || size !== 'small') ? (
-                <Collapsible direction='horizontal' open={showSidebar}>
-                  <Box
-                    flex
-                    width='medium'
-                    background='light-2'
-                    elevation='small'
-                    align='center'
-                    justify='center'
-                  >
-                    <SideBar token={token} setToken={setToken} />
-                  </Box>
-                </Collapsible>
-              ) : (
-                <Layer>
-                  <Box
-                    background='light-2'
-                    tag='header'
-                    justify='end'
-                    align='center'
-                    direction='row'
-                  >
-                    <Button
-                      icon={<FormClose />}
-                      onClick={() => setShowSidebar(!showSidebar)}
-                    />
-                  </Box>
-                  <Box
-                    fill
-                    background='light-2'
-                    align='center'
-                    justify='center'
-                  >
-                    <SideBar token={token} setToken={setToken} />
-                  </Box>
-                </Layer>
-              )}
-            </Box>
-          </Box>
-        )}
-      </ResponsiveContext.Consumer>
-    </Grommet>
+    <Router>
+      <Route path='/' exact render={() => <LogIn setToken={setToken} />} />
+    </Router>
   )
 }
 
