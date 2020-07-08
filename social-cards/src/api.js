@@ -20,4 +20,10 @@ export function getCards (token) {
   }).then(res => res.data)
 }
 
-
+export function getMyCards (token) {
+  return request.get('/card/mine/', {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  }).then(res => res.data)
+}

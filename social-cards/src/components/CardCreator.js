@@ -29,16 +29,16 @@ function CardCreator ({ token }) {
         <Form onSubmit={handleSubmit}>
           <FormField name='title' label='title'>
             <TextInput
-              value={outer}
-              onChange={event => setOuter(event.target.value)}
+              value={inner}
+              onChange={event => setInner(event.target.value)}
               required
             />
           </FormField>
           <FormField name='body' label='text'>
             <TextArea
-              value={inner}
+              value={outer}
+              onChange={event => setOuter(event.target.value)}
               type='password'
-              onChange={event => setInner(event.target.value)}
               required
             />
           </FormField>

@@ -1,11 +1,11 @@
 /* globals localStorage */
 import React, { useState } from 'react'
 import { getToken } from '../api'
-import { Box, Grommet, TextInput, Button, Form, FormField } from 'grommet'
+import { Box, Grommet, TextInput, Button, Form, FormField, Header, Nav } from 'grommet'
 import { grommet } from 'grommet/themes'
+import {Link} from 'react-router-dom'
 
-export default function LogIn ({ setToken }) {
-  const [username, setUsername] = useState(localStorage.getItem('login_username') || '')
+export default function LogIn ({ setToken, username, setUsername }) {
   const [password, setPassword] = useState('')
 
   const handleLogin = (event) => {
@@ -20,6 +20,10 @@ export default function LogIn ({ setToken }) {
 
   return (
     <Grommet full theme={grommet}>
+      <Header background='light-3' pad='medium'>
+        <Link style={{ textDecoration: 'none' }} to='/feed/'>CardClub</Link>
+        <Nav direction='row' color='neutral-1' height='xxsmall' gap='small' wrap />
+      </Header>
       <Box align='center' pad='large'>
         <Form onSubmit={handleLogin}>
           <FormField name='username' label='username'>
@@ -34,10 +38,11 @@ export default function LogIn ({ setToken }) {
               onChange={event => setPassword(event.target.value)}
             />
           </FormField>
-          <Button type='submit' primary label='Submit' />
+          <Button type='submit' primary label='Log In' />
 
         </Form>
       </Box>
+
     </Grommet>
   )
 }

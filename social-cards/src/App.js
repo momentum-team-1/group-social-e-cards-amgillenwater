@@ -5,13 +5,13 @@ import LogOut from './components/LogOut'
 import CardFeed from './components/cardFeed'
 import CardCreator from './components/CardCreator'
 import Home from './components/Home'
-// import { Box, Button, Collapsible, Heading, Grommet, Layer, ResponsiveContext } from 'grommet'
-// import { FormClose, Menu } from 'grommet-icons'
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
+import Profile from './components/Profile'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App (props) {
   const [token, setToken] = useState(localStorage.getItem('login_auth_token'))
-  const [username, setUsername] = useState(localStorage.getItem('login_username'))
+  const [username, setUsername] = useState(localStorage.getItem('login_username') || '')
+
   // ^ if local storage has a token, it will have that in state, otherwise null/undef
   const handleLogout = () => {
     setToken(null)
@@ -30,6 +30,7 @@ function App (props) {
             <Route path='/feed/' render={() => <CardFeed token={token} />} />
             <Route path='/new/' render={() => <CardCreator token={token} />} />
             <Route path='/logout/' render={() => <LogOut onLogout={handleLogout} />} />
+            <Route path='/me/' render={() => <Profile username={username} token={token} />} />
           </Switch>
         </div>
       </Router>
@@ -37,7 +38,7 @@ function App (props) {
   }
   return (
     <Router>
-      <Route path='/' exact render={() => <LogIn setToken={setToken} />} />
+      <Route path='/' exact render={() => <LogIn setToken={setToken} username={username} setUsername={setUsername} />} />
     </Router>
   )
 }
