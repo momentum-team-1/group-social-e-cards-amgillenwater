@@ -4,6 +4,7 @@ import LogIn from './components/login'
 import LogOut from './components/LogOut'
 import CardFeed from './components/CardFeed'
 import CardCreator from './components/CardCreator'
+import Home from './components/Home'
 // import { Box, Button, Collapsible, Heading, Grommet, Layer, ResponsiveContext } from 'grommet'
 // import { FormClose, Menu } from 'grommet-icons'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
@@ -23,11 +24,9 @@ function App (props) {
     return (
       <Router>
         <div>
-          <p>Hi, {username}!</p>
-          <p><Link to='/logout/'>Log out</Link></p>
+          <Home username={username} />
           <Switch>
-            <Route path='/' exact render={() => <LogIn setToken={setToken} />} />
-            <Route path='/feed' render={() => <CardFeed token={token} />} />
+            <Route path='/feed/' render={() => <CardFeed token={token} />} />
             <Route path='/new' render={() => <CardCreator token={token} />} />
             <Route path='/logout/' render={() => <LogOut onLogout={handleLogout} />} />
           </Switch>
