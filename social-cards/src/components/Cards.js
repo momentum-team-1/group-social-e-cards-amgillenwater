@@ -18,11 +18,13 @@ export default function Cards ({ cards, token }) {
       <Grommet full theme={grommet}>
         {cards && cards.map((card) => {
           return (
-            <CardDiv key={card.id} className={card.color}>
-              <h2 className={card.font}>{card.text_outer}</h2>
-              <p className={card.font}>{card.text_inner} <br /> <Link to={`/${card.author}/`}>@{card.author}</Link></p>
-              <Button align='right' icon={<Trash color='white' />} onClick={event => handleDelete(event, card.id)} />
-            </CardDiv>
+            <div key={card.id}>
+              <CardDiv className={card.color}>
+                <h2 className={card.font}>{card.text_outer}</h2>
+                <p className={card.font}>{card.text_inner} <br /> <Link to={`/${card.author}/`}>@{card.author}</Link></p>
+                <Button align='right' icon={<Trash color='white' />} onClick={event => handleDelete(event, card.id)} />
+              </CardDiv>
+            </div>
           )
         })}
       </Grommet>
