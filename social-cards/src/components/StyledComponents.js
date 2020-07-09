@@ -11,6 +11,7 @@ export const CardDiv = styled.div`
   border: solid .1rem;
   text-align: center;
   max-width: 550px;
+  height: 400;
   margin: 2rem;
   border-radius: 25px;
 `

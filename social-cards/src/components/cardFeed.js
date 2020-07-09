@@ -10,7 +10,7 @@ const CardFeed = ({ token }) => {
     if (token) {
       getCards(token).then(cards => setCards(cards.results))
     }
-  }, [token])
+  }, [token, setCards])
 
   return (
     <div align='center'>

@@ -64,7 +64,7 @@ function CardCreator ({ token }) {
               required
             />
           </FormField>
-          <Button type='submit' primary label='Submit' onClick={() => history.goBack()} />
+          <Button type='submit' primary align='center' label='Create Card' onClick={() => history.goBack()} />
 
         </Form>
       </Box>
