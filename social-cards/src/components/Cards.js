@@ -1,7 +1,6 @@
 import React from 'react'
 import '../app.css'
 import { CardDiv } from './StyledComponents'
-import { Link } from 'react-router-dom'
 import { deleteCard } from '../api'
 import { Trash } from 'grommet-icons'
 import { Button, Grommet } from 'grommet'

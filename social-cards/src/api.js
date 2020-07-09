@@ -46,3 +46,11 @@ export function deleteCard (token, id) {
     console.log(res.data)
   })
 }
+
+export function getUserList (token) {
+  return request.get('/user/', {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  }).then(res => res.data)
+}
