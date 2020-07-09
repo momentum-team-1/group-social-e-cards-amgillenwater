@@ -42,7 +42,7 @@ export function deleteCard (token, id) {
       Authorization: `Token ${token}`
     }
   }).then(res => {
-    console.log(res);
-    console.log(res.data);
+    console.log(res)
+    console.log(res.data)
   })
 }
