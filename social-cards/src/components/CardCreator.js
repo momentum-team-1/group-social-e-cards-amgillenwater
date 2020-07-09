@@ -3,7 +3,6 @@ import axios from 'axios'
 import { Box, Grommet, TextInput, TextArea, Button, Form, FormField, Select } from 'grommet'
 import { grommet } from 'grommet/themes'
 import { useHistory } from 'react-router-dom'
-import Recipient from './Recipient'
 
 function CardCreator ({ token }) {
   const [outer, setOuter] = useState('')
@@ -67,7 +66,7 @@ function CardCreator ({ token }) {
               required
             />
           </FormField>
-          <Recipient token={token} />
+        
           <Button type='submit' primary align='center' label='Create Card' onClick={() => history.goBack()} />
 
         </Form>
