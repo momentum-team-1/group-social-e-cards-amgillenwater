@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import '../app.css'
 import { CardDiv } from './StyledComponents'
 import { Link } from 'react-router-dom'

@@ -14,18 +14,21 @@ export default function FriendList ({ username, token }) {
   })
 
   return (
-    <Grommet full theme={grommet}>
-      <CardDiv className='sansserif'>
-        <ul>
-          {friends && friends.map((friend) => {
-            return (
-              <li key={friend.username}> <Link to={`/${friend.username}/`} style={{ textDecoration: 'none' }}>{friend.username}</Link></li>
-            )
-          })}
+    <div align='center'>
+      <Grommet full theme={grommet}>
+        <CardDiv className='sansserif'>
+          <h2> @{username}'s friends:</h2>
+          <ul>
+            {friends && friends.map((friend) => {
+              return (
+                <li key={friend.username}> <Link to={`/${friend.username}/`} style={{ textDecoration: 'none' }}>{friend.username}</Link></li>
+              )
+            })}
 
-        </ul>
-      </CardDiv>
-    </Grommet>
+          </ul>
+        </CardDiv>
+      </Grommet>
+    </div>
 
   )
 }

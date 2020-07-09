@@ -13,7 +13,7 @@ const Profile = ({ token, username }) => {
   })
 
   return (
-    <div>
+    <div align='center'>
       <Grommet full theme={grommet}>
         <Box align='center' pad='large'>
           <h2>Hi, {username}!</h2>
