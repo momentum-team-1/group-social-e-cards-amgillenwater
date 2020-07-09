@@ -44,7 +44,7 @@ function App (props) {
   return (
     <Router>
       <Route path='/' exact render={() => <LogIn setToken={setToken} username={username} setUsername={setUsername} />} />
-      <Route path='/register/' exact render={() => <Register token={token}/>} />
+      <Route path='/register/' exact render={() => <Register token={token} />} />
 
     </Router>
   )
