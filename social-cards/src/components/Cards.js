@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../app.css'
 import { CardDiv } from './StyledComponents'
 import { deleteCard } from '../api'
@@ -7,9 +7,18 @@ import { Button, Grommet } from 'grommet'
 import { grommet } from 'grommet/themes'
 
 export default function Cards ({ cards, token }) {
+  const [reload, setReload] = useState('')
   const handleDelete = (event, id) => {
     event.preventDefault()
     deleteCard(token, id)
+      .then(response => {
+        console.log(response)
+        if (response.status === 204) {
+          setReload('deleted')
+          return reload
+        }
+      }
+      )
   }
 
   return (
