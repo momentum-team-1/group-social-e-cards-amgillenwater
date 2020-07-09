@@ -14,7 +14,7 @@ const CardFeed = ({ token }) => {
 
   return (
     <div align='center'>
-      <Cards cards={cards} />
+      <Cards cards={cards} token={token} />
     </div>
   )
 }

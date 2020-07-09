@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { getFriendList } from '../api'
 import { Grommet } from 'grommet'
+import { grommet } from 'grommet/themes'
 import { CardDiv } from './StyledComponents'
 
 export default function FriendList ({ username, token }) {
@@ -13,7 +14,7 @@ export default function FriendList ({ username, token }) {
   })
 
   return (
-    <Grommet>
+    <Grommet full theme={grommet}>
       <CardDiv className='sansserif'>
         <ul>
           {friends && friends.map((friend) => {

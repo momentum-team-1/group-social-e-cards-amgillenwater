@@ -35,3 +35,14 @@ export function getFriendList (username, token) {
     }
   }).then(res => res.data)
 }
+
+export function deleteCard (token, id) {
+  return request.delete(`/card/${id}/`, {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  }).then(res => {
+    console.log(res);
+    console.log(res.data);
+  })
+}
