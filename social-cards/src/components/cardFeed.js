@@ -1,9 +1,6 @@
-/* globals localStorage */
 import React, { useState, useEffect } from 'react'
 import Cards from './Cards'
 import { getCards } from '../api'
-import { Box, Grommet } from 'grommet'
-import { grommet } from 'grommet/themes'
 import '../app.css'
 
 const CardFeed = ({ token }) => {
@@ -13,7 +10,7 @@ const CardFeed = ({ token }) => {
     if (token) {
       getCards(token).then(cards => setCards(cards.results))
     }
-  })
+  }, [token])
 
   return (
     <div align='center'>

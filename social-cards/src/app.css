@@ -16,7 +16,7 @@
     width: 550px;
     margin: 2rem;
     border-radius: 25px;
-    color: white;
+    color: black;
   }
 
 .pink{
@@ -27,7 +27,7 @@
     width: 550px;
     margin: 2rem;
     border-radius: 25px;
-    color: white;   
+    color: black;   
 }
 .magenta {
     background-color: #9e0059;
@@ -37,7 +37,7 @@
     width: 550px;
     margin: 2rem;
     border-radius: 25px;
-    color: white;   
+    color: black;   
 }
 
 
@@ -46,7 +46,7 @@
     background-color: #390099;
     padding: 2rem;
     border: solid .1rem;
-    border-color: white;
+    border-color: black;
     text-align: center;
     width: 550px;
     margin: 2rem;
@@ -55,10 +55,19 @@
 }
 
 .sansserif{
-    font-family:'Montserrat', sans-serif
+    font-family:'Montserrat', sans-serif;
+    font-size: 20px;
 }
 
 .serif{
-    font-family: 'Lora', serif;
-
+    font-family: 'Sahitya', serif;
 }
+
+ul {
+    list-style: none;
+    padding: 0;
+  }
+
+li {
+    padding: 5px 10px;
+  }

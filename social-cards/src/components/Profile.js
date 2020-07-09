@@ -11,6 +11,7 @@ const Profile = ({ token, username }) => {
       getMyCards(token).then(cards => setCards(cards.results))
     }
   })
+
   return (
     <div>
       <Grommet full theme={grommet}>

@@ -1,6 +1,4 @@
-import React from 'react'
 import styled from 'styled-components'
-import HeartButton from './HeartButton'
 
 export const OuterText = styled.h2`
 font-weight: 200;

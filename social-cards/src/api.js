@@ -27,3 +27,11 @@ export function getMyCards (token) {
     }
   }).then(res => res.data)
 }
+
+export function getFriendList (username, token) {
+  return request.get(`/user/${username}/friend_list/`, {
+    headers: {
+      Authorization: `Token ${token}`
+    }
+  }).then(res => res.data)
+}

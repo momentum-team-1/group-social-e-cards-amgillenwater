@@ -7,6 +7,7 @@ import CardFeed from './components/cardFeed'
 import CardCreator from './components/CardCreator'
 import Home from './components/Home'
 import Profile from './components/Profile'
+import FriendList from './components/FriendList'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App (props) {
@@ -32,6 +33,8 @@ function App (props) {
             <Route path='/new/' render={() => <CardCreator token={token} />} />
             <Route path='/logout/' render={() => <LogOut onLogout={handleLogout} />} />
             <Route path='/me/' render={() => <Profile username={username} token={token} />} />
+            <Route path='/friends/' render={() => <FriendList token={token} username={username} />} />
+            <Route path={`/${username}/`} render={() => <Profile username={username} token={token} />} />
           </Switch>
         </div>
       </Router>
