@@ -8,6 +8,7 @@ import CardCreator from './components/CardCreator'
 import Home from './components/Home'
 import Profile from './components/Profile'
 import FriendList from './components/FriendList'
+import Register from './components/Register'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 
 function App (props) {
@@ -43,6 +44,8 @@ function App (props) {
   return (
     <Router>
       <Route path='/' exact render={() => <LogIn setToken={setToken} username={username} setUsername={setUsername} />} />
+      <Route path='/register/' exact render={() => <Register token={token}/>} />
+
     </Router>
   )
 }

@@ -1,21 +1,23 @@
-/* globals localStorage */
 import React, { useState } from 'react'
-import { getToken } from '../api'
+import axios from 'axios'
 import { Box, Grommet, TextInput, Button, Form, FormField } from 'grommet'
 import { grommet } from 'grommet/themes'
 import { CardDiv } from './StyledComponents'
-import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
-export default function LogIn ({ setToken, username, setUsername }) {
+function Register ({ token }) {
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('')
+  const history = useHistory()
 
-  const handleLogin = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
-    getToken(username, password)
-      .then(token => {
-        setToken(token)
-        localStorage.setItem('login_username', username)
-        localStorage.setItem('login_auth_token', token)
+    axios
+      .post('https://card-club.herokuapp.com/api/auth/users/', {
+        username: username,
+        password: password,
+        email: email
       })
   }
 
@@ -25,7 +27,7 @@ export default function LogIn ({ setToken, username, setUsername }) {
         <CardDiv className='welcome'>
           <h2 className='sansserif'>Welcome to Card Club!</h2>
           <p className='sansserif'>Card Club is a social platform where you can create cards to share with your friends.</p>
-          <Form onSubmit={handleLogin}>
+          <Form onSubmit={handleSubmit}>
             <FormField name='username' label='username'>
               <TextInput
                 value={username} onChange={event => setUsername(event.target.value)}
@@ -38,12 +40,21 @@ export default function LogIn ({ setToken, username, setUsername }) {
                 onChange={event => setPassword(event.target.value)}
               />
             </FormField>
-            <Button type='submit' primary label='Log In' />
+            <FormField name='email' label='email'>
+              <TextInput
+                value={email}
+                type='email'
+                onChange={event => setEmail(event.target.value)}
+              />
+            </FormField>
+            <Button type='submit' primary label='Register' onClick={() => history.goBack()} />
           </Form>
-          <Link to='/register/' style={{ textDecoration: 'none' }}>Don't have an account? Register here.</Link>
+
         </CardDiv>
       </Box>
 
     </Grommet>
   )
 }
+
+export default Register
